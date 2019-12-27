@@ -1,0 +1,98 @@
+<html>
+<head>
+ <meta charset="utf-8"/>
+<center> <h3>Deloitte new registry </h3> </center></head>
+<title>
+Deloitte new registry</title><br>
+<body>
+<form autocomplete="off" onsubmit="return validateForm()">
+Name:<input id="txtName" type="text" name="name1" placeholder="Enter your name" oninput="nameValidation()"  size="25" autofocus><span id="errMessage"></span><br><br>
+<!-- password: <input type="password" name="pwd" pattern="[A-Z]{1}[0-9A-Za-z*!@#$%]{7,}" title="Must contain at least one number and one uppercase and 
+lowercase letter, and at least 8 or more characters and *,!,@,#,$,%" required><br><br> -->
+E-mail: <input type="email" name="email" pattern="[a-zA-Z0-9._%+-]+[@]{1}[a-zA-Z]+(.com|.co.in)"><BR><BR>
+Gender: <input type="radio" name="gender" value="female"/>female
+<input type="radio" name="gender" value="male"/>male
+<input type="radio" name="gender" value="other"/>other <span id="errorGender"></span><br><br>
+color: <input type="color" name="favcolor" value="#000000"><br><br>
+date of birth: <input type="date"><br><br>
+contact number: <input type="text" pattern="[6-9]{1}[0-9]{9}"  name="number"><br><br>
+Languages known:<input type="checkbox" name="tech1" value="HTML"/>HTML
+<input type="checkbox" name="tech2" value="Java"/>Java
+<input type="checkbox" name="tech3" value="CSS"/>CSS
+<input type="checkbox" name="tech4" value="PHP"/>PHP<br><br>
+Address: <textarea rows="2" columns="50" placeholder="enter your address"></textarea><br><br>
+city: <select name="Cities" class="droptxt" multiple>
+<option value="">Please select</option>
+<option value="Cbe"> Coimbatore</option>
+<option value="Ch"> Chennai</option>
+<option value="Blr"> Bangalore</option>
+<option value="Hyd"> Hyderabad</option>
+<span id="errordrop"></span>
+</select> <br><br>
+    Select to upload:
+    <input type="file"  multiple><br><br>
+ <input type="submit"  value="submit"/>
+ <input type="reset" value="reset"/>
+ 
+<script>
+<!--function nameValidation()
+{
+var userValue=document.getElementById("txtName").value;
+var namePattern="^[a-zA-Z]+$";
+if(!userValue.match(namePattern))
+document.getElementById("errMessage").innerHTML="Name should be in alphabets";
+else
+document.getElementById("errMessage").innerHTML="";
+}-->
+function validateForm()
+	{
+	  var elements=document.getElementsByName("gender");
+	  var count=0;
+		for(var i=0;i<elements.length;i++){
+		  if(elements[i].checked)
+		  count++;
+		 }
+		if(count==0){
+		 document.getElementById("errorGender").innerHTML="please select one";
+		 return false;
+		}
+		else{
+		 document.getElementById("errorGender").innerHTML="";
+		 return true;
+		 }
+	}
+
+function validatedrop()
+{ 
+           var droptxt=document.getElementsByClassName("droptxt");
+		   var count=0;
+	for(var i=0;i<droptxt.length;i++)
+	{
+		if(droptxt[i].checked)
+		count++;
+	}
+	if(count==0)
+	{
+		document.getElementById("errordrop").innerHTML="please select one";
+		return false;
+	}
+	else{
+		document.getElementById("errordrop").innerHTML="";
+		return true;
+	
+
+	}}
+	function submitform()
+	{
+	if( gendervalidate()&& validatedrop())
+	return true;
+	else
+	return false'
+	}
+
+</script>
+
+
+</body>
+</form>
+</html>
